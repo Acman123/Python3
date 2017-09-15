@@ -609,3 +609,14 @@ def baseConvert(num, base1, base2):
             baseStr += "0"
 
     return baseStr
+
+def randomInt(len,base):
+  import random
+  import string
+  digits = [str(i) for i in list(range(0, 10))]
+  digits.extend(list(string.ascii_uppercase))
+  digits.extend(list(string.ascii_lowercase))
+  digits.extend(['+', '/'])
+  return eval(str('str(hex[random.randint(0,{})])+'.format(base-2)*len)[:-1])
+
+print(randomInt(3,64))
