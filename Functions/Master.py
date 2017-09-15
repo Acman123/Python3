@@ -1,3 +1,8 @@
+import cmath
+import math
+import gc
+
+
 def switch(case, *args):
     if not isinstance(args[0],str):
         args = list(*args)
