@@ -618,5 +618,3 @@ def randomInt(len,base):
   digits.extend(list(string.ascii_lowercase))
   digits.extend(['+', '/'])
   return eval(str('str(hex[random.randint(0,{})])+'.format(base-2)*len)[:-1])
-
-print(randomInt(3,64))
