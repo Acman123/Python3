@@ -71,13 +71,13 @@ def printClass(class1):
 def positions(n):
     a = str(n)[-1]
     if a == '1':
-        return a + 'st'
+        return n + 'st'
     elif a == '2':
-        return a + 'nd'
+        return n + 'nd'
     elif a == '3':
-        return a + 'rd'
+        return n + 'rd'
     else:
-        return a + 'th'
+        return n + 'th'
 
 def comma(n):
     temp = list(str(n))
