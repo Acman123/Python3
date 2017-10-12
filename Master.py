@@ -70,11 +70,11 @@ def printClass(class1):
 
 def positions(n):
     a = str(n)[-1]
-    if a == 1:
+    if a == '1':
         return a + 'st'
-    elif a == 2:
+    elif a == '2':
         return a + 'nd'
-    elif a == 3:
+    elif a == '3':
         return a + 'rd'
     else:
         return a + 'th'
