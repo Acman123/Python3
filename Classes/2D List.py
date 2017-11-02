@@ -22,12 +22,15 @@ class list2D():
     for i in range(len(self.container)):
       self.container.insert(i+1,sorted(self.container[i]))
       del(self.container[i])
-      firstItems.update({i:self.container[i][0]})
-      
+      firstItems.update({i:self.container[i][pos]})
+  
+  def posSort(self,pos):
+    firstItems = {}
+    for i in range(len(self.container)):
+      firstItems.update({i:self.container[i][pos]})
     firstItems = [(k, firstItems[k]) for k in sorted(firstItems, key=firstItems.get, reverse=False)]
     tempContainer = []
     for i in firstItems:
       tempContainer.append(self.container[i[0]])
     self.container = tempContainer
     
-
