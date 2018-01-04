@@ -19,17 +19,17 @@ def printClass(class1):
             print(obj)
             print(obj.__dict__)
 
-
+            
 def positions(n):
     a = str(n)[-1]
-    if a == 1:
-        return a + 'st'
-    elif a == 2:
-        return a + 'nd'
-    elif a == 3:
-        return a + 'rd'
+    if a == "1":
+        return n + 'st'
+    elif a == "2":
+        return n + 'nd'
+    elif a == "3":
+        return n + 'rd'
     else:
-        return a + 'th'
+        return n + 'th'
 
 def comma(n): #Inserts commas into a number, i.e. 1000000 --> 1,000,000
     temp = list(str(n))
