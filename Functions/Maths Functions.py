@@ -1,6 +1,12 @@
 def mod(b,a):
     return b - a*int(b/a)
 
+def  powerGen(m=2,n=-2):
+    count = -1
+    while count >= n:
+        count += 1
+        yield count**m
+
 def risingFactorial(x,n):
     tot = 1
     for i in range(1,n+2):
