@@ -34,3 +34,23 @@ def quadratic(a,b,c):
 
 def distance(x1,x2,y1,y2):
     return math.sqrt(((y2-y1)**2)+((x2-x1)**2))
+def sin(x):
+    x = x / (180/3.1415926535897)
+    n = 100
+    valid = False
+    while valid != True:
+        valid = True
+        ret = 0
+        try:
+            for i in range(n):
+                ret += ((-1)**(i) * (x)**(2*i +1))/(factorial(2*i + 1))
+        except OverflowError:
+            n -= 1
+            valid = False
+    return ret
+
+def cos(x):
+    return sin(90-x)
+
+def tan(x):
+    return sin(x) / cos(x)
