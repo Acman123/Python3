@@ -11,7 +11,7 @@ class Func2D():
         self.xos = xos
         self.yos = yos
 
-        def __call__(x):
+        def __call__(self,x):
             return self.f(x-self.xos) + self.yos
 
         return __call__
