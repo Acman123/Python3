@@ -13,7 +13,7 @@ class Func3D():
         self.yos = yos
         self.zos = zos
 
-        def __call__(x, y):
+        def __call__(self,x, y):
             return self.f(x-self.xos, y-self.yos) + self.zos
 
         return __call__
