@@ -28,10 +28,9 @@ class Circle:
     def sector(self, a):
         return self.area() * (a/360)
 
-class Square:
-    def __init__(self,l1,l2):
-        self.length = l1
-        self.width = l2
+class Square(Rectangle):
+    def __init__(self,width,height):
+        super(self.__class__,self).__init__(id1,4,width,height)
     def diagonal():
         return pythagoras('ss',self.width,self.length)
     def perimiter():
