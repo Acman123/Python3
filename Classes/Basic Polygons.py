@@ -32,6 +32,6 @@ class Square(Rectangle):
     def __init__(self,length):
         super(self.__class__,self).__init__(id1,4,length,length)
     def diagonal():
-        return 2**(1/2) * width
+        return 2**(1/2) * length
     def perimiter():
         return 2 * self.length + 2 * self.width
