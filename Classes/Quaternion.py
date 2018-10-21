@@ -25,7 +25,7 @@ class Quaternion:
                 elif vals[i] == -1:
                     ret += "-" + end[i]
                 else:
-                    ret += str(vals[i]) + end[i]
+                    ret += f"{vals[i]:.1f}" + end[i]
                 if i != 3:
                     ret += " + "
         return ret
