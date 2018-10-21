@@ -63,5 +63,3 @@ class Complex:
 
     def inverse(self):
         return self.conjugate() / (self.magnitude**2)
-
-print(b.inverse(), a/b)
