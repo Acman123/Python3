@@ -36,3 +36,11 @@ def comma(n): #Inserts commas into a number, i.e. 1000000 --> 1,000,000
     for i in range(len(temp),0,-3):
         temp.insert(i,',')
     return ''.join(temp[:-1])
+
+def uniqueValues(arr):
+    unique = []
+    for item in arr:
+        if item not in unique:
+            unique.append(item)
+
+    return unique
