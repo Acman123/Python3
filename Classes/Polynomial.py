@@ -77,9 +77,7 @@ class Polynomial():
         return Polynomial(*tuple(reversed(coeffs)))
 
     def __pow__(self,power):
-        if power == 2:
-            ret = self * self
-        elif power == 1:
+        if power == 1:
             ret = self
         else:
             ret = self * pow(self, power-1)
