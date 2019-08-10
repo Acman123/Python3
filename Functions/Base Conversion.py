@@ -2,6 +2,9 @@ def baseConvert(num, base1, base2):
     import math
     import string
 
+    if num == 0:
+        return "0"   
+    
     accepted = True
     base10Nums = []
     baseStr = ""
