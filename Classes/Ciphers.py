@@ -24,12 +24,12 @@ class Shift:
         return newWord
     
 
-class keyWord(self, key):
-    def __init__:
+class keyWord:
+    def __init__(self,key):
         self.key = key.upper().strip()
         self.alpha = string.ascii_uppercase
 
-    def encrypt(self,word)
+    def encrypt(self,word):
         w = word.upper().strip()
         chars = list(w)
         transChars = list(key)
@@ -43,7 +43,7 @@ class keyWord(self, key):
         newWord = ''.join(newChars)
         return newWord
 
-    def decrypt(self,word)
+    def decrypt(self,word):
         w = word.upper().strip()
         chars = list(w)
         transChars = list(key)
