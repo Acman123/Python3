@@ -103,6 +103,15 @@ class Fraction:
                     f = Fraction(int(fParts[0]), int(fParts[1]))
                     self.p = f.p
                     self.q = f.q
+
+                elif "." in self.p:
+                    d = len(self.p[self.p.find(".")+1:])
+                    p = float(self.p) * 10**d
+                    q = 10**d
+                    f = Fraction(int(p), q)
+                    self.p = f.p
+                    self.q = f.q
+
                 else:
                     self.p = int(self.p)
                     self.q = 1
