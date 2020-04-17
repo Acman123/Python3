@@ -39,6 +39,7 @@ class Polynomial():
                 rep += self.var + f"^{len(self.coeffs) - i - 1}"
 
         return rep
+    
     def __add__(self,other):
         return Polynomial(*(x + y for x,y in zip(self.coeffs,other.coeffs)))
 
@@ -57,6 +58,10 @@ class Polynomial():
                 coeffs[i + j] += selfCoeffs[i] * otherCoeffs[j]
 
         return Polynomial(*tuple(reversed(coeffs)))
+    
+    def __rmul__(self, other):
+        self.coeffs = [i * other for i in self.coeffs]
+        return self
 
     def __pow__(self,power):
         if power == 1:
