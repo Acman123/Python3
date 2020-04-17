@@ -1,6 +1,7 @@
 class Polynomial():
-    def __init__(self,*coeffs):
+    def __init__(self,*coeffs,var="x"):
         self.coeffs = coeffs
+        self.var = "x"
 
     def __call__(self,x):
         return self.func()(x)
@@ -11,52 +12,33 @@ class Polynomial():
             if self.coeffs[i] == 0:
                 continue
 
-            elif i + 1 == len(self.coeffs):
-                rep += f'{self.coeffs[i]}'
-                break
-
-            elif self.coeffs[i] == 1:
-                if i + 2 == len(self.coeffs):
-                    rep += f'x'
+            if rep == "":
+                if i + 1 == len(self.coeffs):
+                    return str(self.coeffs[i])
+                
+                if self.coeffs[i] in [1, -1]:
+                    rep += str(self.coeffs[i]).replace('1','')
 
                 else:
-                    rep += f'x^{len(self.coeffs) - i - 1}'
+                    rep += f"{self.coeffs[i]}"
+
             else:
-                if i + 2 == len(self.coeffs):
-                    rep += f'{self.coeffs[i]}x'
-                else:
-                    rep += f'{self.coeffs[i]}x^{len(self.coeffs) - i - 1}'
+                if self.coeffs[i] > 0:
+                    rep += " + "
 
-            if i + 1 != len(self.coeffs) and sum([x if x > 0 else -x for x in self.coeffs[i + 1:]]) > 0:
-                rep += " + "
+                else:
+                    rep += " - "
+
+                if self.coeffs[i] not in [1,-1] or i + 1 == len(self.coeffs):
+                    rep += str(abs(self.coeffs[i]))
+
+            if i + 2 == len(self.coeffs):
+                rep += self.var
+
+            elif i + 1 != len(self.coeffs):
+                rep += self.var + f"^{len(self.coeffs) - i - 1}"
+
         return rep
-
-    def funcRepr(self):
-        rep = ""
-        for i in range(len(self.coeffs)):
-            if self.coeffs[i] == 0:
-                continue
-
-            elif i + 1 == len(self.coeffs):
-                rep += f'{self.coeffs[i]}'
-                break
-
-            elif self.coeffs[i] == 1:
-                if i + 2 == len(self.coeffs):
-                    rep += f'x'
-
-                else:
-                    rep += f'x^{len(self.coeffs) - i - 1}'
-            else:
-                if i + 2 == len(self.coeffs):
-                    rep += f'{self.coeffs[i]}*x'
-                else:
-                    rep += f'{self.coeffs[i]}*x**{len(self.coeffs) - i - 1}'
-
-            if i + 1 != len(self.coeffs) and sum([x if x > 0 else -x for x in self.coeffs[i + 1:]]) > 0:
-                rep += " + "
-        return rep
-
     def __add__(self,other):
         return Polynomial(*(x + y for x,y in zip(self.coeffs,other.coeffs)))
 
@@ -89,4 +71,4 @@ class Polynomial():
                 return len(self.coeffs) - i - 1
 
     def func(self):
-        return lambda x:eval(self.funcRepr().replace("x",str(x)))
+        return lambda x:eval(self.__repr__.replace("x",str(x)))
